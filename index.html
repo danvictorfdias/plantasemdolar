@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Utmify Pixel -->
+    <script>
+        window.pixelId = "68ceca0c6b48e432db01234e";
+        var a = document.createElement("script");
+        a.setAttribute("async", "");
+        a.setAttribute("defer", "");
+        a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+        document.head.appendChild(a);
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5FRB6CM4LW"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-5FRB6CM4LW');
+    </script>
+
+    <!-- Back Redirect Script -->
+    <script type="text/javascript">
+        (function () {
+            var back_redirect_back_link = 'https://brflores.amigurumitop.com';
+            var blockRedirect = false;
+            var isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+            function getQueryString() {
+                return window.location.search || '';
+            }
+
+            // GARANTIR que não há beforeunload
+            window.onbeforeunload = null;
+            window.removeEventListener('beforeunload', function () { });
+
+            // Push history states
+            history.pushState({}, "", location.href);
+            history.pushState({}, "", location.href);
+            if (isMobile) {
+                history.pushState({}, "", location.href);
+                history.pushState({}, "", location.href);
+            }
+
+            // MOBILE: Swipe detection
+            var xDown = null, yDown = null;
+
+            document.addEventListener('touchstart', function (evt) {
+                if (blockRedirect) return;
+                xDown = evt.touches[0].clientX;
+                yDown = evt.touches[0].clientY;
+            }, { passive: false });
+
+            document.addEventListener('touchmove', function (evt) {
+                if (!xDown || !yDown || blockRedirect) return;
+
+                var xUp = evt.touches[0].clientX;
+                var xDiff = xDown - xUp;
+
+                if (Math.abs(xDiff) > 100 && xDiff < 0) {
+                    evt.preventDefault();
+
+                    var queryString = getQueryString();
+                    var finalUrl = back_redirect_back_link + queryString;
+
+                    // REDIRECT DIRETO - EXPERIÊNCIA SUAVE
+                    window.location.href = finalUrl;
+
+                    xDown = null;
+                    yDown = null;
+                    return false;
+                }
+            }, { passive: false });
+
+            document.addEventListener('touchend', function () {
+                xDown = null;
+                yDown = null;
+            }, { passive: true });
+
+            // BOTÃO VOLTAR - REDIRECT DIRETO
+            window.onpopstate = function () {
+                if (blockRedirect) {
+                    console.log('Redirect bloqueado - botão clicado');
+                    return;
+                }
+
+                var queryString = getQueryString();
+                var finalUrl = back_redirect_back_link + queryString;
+
+                // REDIRECT DIRETO - SEM DELAY, SEM AVISO
+                setTimeout(function () {
+                    location.href = finalUrl;
+                }, 0);
+            };
+
+            // Exclusão de botões (mesmo código anterior)
+            function shouldExcludeElement(element) {
+                if (!element) return false;
+
+                var currentEl = element;
+                while (currentEl && currentEl !== document.body) {
+                    if (currentEl.tagName === 'BUTTON' || currentEl.tagName === 'A') return true;
+
+                    var href = currentEl.getAttribute('href') || '';
+                    if (href && (
+                        href.includes('checkout') ||
+                        href.includes('whatsapp') ||
+                        href.includes('wa.me') ||
+                        href.includes('hotmart') ||
+                        href.includes('kiwify') ||
+                        href.includes('pay') ||
+                        href.startsWith('http')
+                    )) return true;
+
+                    var className = currentEl.className || '';
+                    if (className.includes('btn') ||
+                        className.includes('button') ||
+                        className.includes('cta') ||
+                        className.includes('no-redirect')) return true;
+
+                    currentEl = currentEl.parentNode;
+                }
+                return false;
+            }
+
+            document.addEventListener('click', function (e) {
+                if (shouldExcludeElement(e.target)) {
+                    blockRedirect = true;
+                    console.log('✅ Botão excluído do redirect:', e.target);
+
+                    setTimeout(function () {
+                        blockRedirect = false;
+                    }, 3000);
+                }
+            }, true);
+
+            console.log('🚀 Redirect DIRETO ativo - Experiência otimizada!');
+
+        })();
+    </script>
+    <!-- End Back Redirect Script -->
+
+    <!-- Utmify Script -->
+    <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck
+        data-utmify-prevent-subids async defer></script>
+
+    <!-- Resource Hints para otimização de conexão -->
+    <link rel="dns-prefetch" href="https://api.tecnicassecretas.site">
+    <link rel="preconnect" href="https://api.tecnicassecretas.site" crossorigin>
+    <link rel="dns-prefetch" href="https://i.postimg.cc">
+    <link rel="preconnect" href="https://i.postimg.cc" crossorigin>
+
+    <!-- Preload da imagem LCP -->
+    <link rel="preload" as="image" href="https://i.postimg.cc/cLz9jrW9/Design.webp" fetchpriority="high"
+        imagesizes="500px">
+
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apostila Amigurumi Plantas & Floresta - +100 Modelos Exclusivos</title>
+
+    <!-- CSS Crítico Inline -->
+    <style>
+        *,
+        ::before,
+        ::after {
+            box-sizing: border-box;
+            border-width: 0;
+            border-style: solid;
+            border-color: #e5e7eb
+        }
+
+        ::before,
+        ::after {
+            --tw-content: ''
+        }
+
+        html,
+        :host {
+            line-height: 1.5;
+            -webkit-text-size-adjust: 100%;
+            -moz-tab-size: 4;
+            tab-size: 4;
+            font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-feature-settings: normal;
+            font-variation-settings: normal;
+            -webkit-tap-highlight-color: transparent
+        }
+
+        body {
+            margin: 0;
+            line-height: inherit
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            margin: 0
+        }
+
+        button {
+            font-family: inherit;
+            font-feature-settings: inherit;
+            font-variation-settings: inherit;
+            font-size: 100%;
+            font-weight: inherit;
+            line-height: inherit;
+            letter-spacing: inherit;
+            color: inherit;
+            margin: 0;
+            padding: 0
+        }
+
+        button {
+            text-transform: none
+        }
+
+        button {
+            -webkit-appearance: button;
+            background-color: transparent;
+            background-image: none
+        }
+
+        img,
+        svg {
+            display: block;
+            vertical-align: middle
+        }
+
+        img {
+            max-width: 100%;
+            height: auto
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale
+        }
+
+        .container {
+            width: 100%
+        }
+
+        @media (min-width:640px) {
+            .container {
+                max-width: 640px
+            }
+        }
+
+        @media (min-width:768px) {
+            .container {
+                max-width: 768px
+            }
+        }
+
+        @media (min-width:1024px) {
+            .container {
+                max-width: 1024px
+            }
+        }
+
+        @media (min-width:1280px) {
+            .container {
+                max-width: 1280px
+            }
+        }
+
+        @media (min-width:1536px) {
+            .container {
+                max-width: 1536px
+            }
+        }
+
+        .relative {
+            position: relative
+        }
+
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        .mb-4 {
+            margin-bottom: 1rem
+        }
+
+        .mb-6 {
+            margin-bottom: 1.5rem
+        }
+
+        .mb-8 {
+            margin-bottom: 2rem
+        }
+
+        .flex {
+            display: flex
+        }
+
+        .inline-flex {
+            display: inline-flex
+        }
+
+        .min-h-screen {
+            min-height: 100vh
+        }
+
+        .w-full {
+            width: 100%
+        }
+
+        .max-w-md {
+            max-width: 28rem
+        }
+
+        .max-w-xl {
+            max-width: 36rem
+        }
+
+        .max-w-2xl {
+            max-width: 42rem
+        }
+
+        .max-w-5xl {
+            max-width: 64rem
+        }
+
+        .items-center {
+            align-items: center
+        }
+
+        .justify-center {
+            justify-content: center
+        }
+
+        .gap-2 {
+            gap: 0.5rem
+        }
+
+        .rounded-xl {
+            border-radius: 0.75rem
+        }
+
+        .rounded-full {
+            border-radius: 9999px
+        }
+
+        .bg-white {
+            --tw-bg-opacity: 1;
+            background-color: rgb(255 255 255 / var(--tw-bg-opacity))
+        }
+
+        .bg-gradient-to-b {
+            background-image: linear-gradient(to bottom, var(--tw-gradient-stops))
+        }
+
+        .from-green-50 {
+            --tw-gradient-from: #f0fdf4 var(--tw-gradient-from-position);
+            --tw-gradient-to: rgb(240 253 244 / 0) var(--tw-gradient-to-position);
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to)
+        }
+
+        .to-white {
+            --tw-gradient-to: #fff var(--tw-gradient-to-position)
+        }
+
+        .px-4 {
+            padding-left: 1rem;
+            padding-right: 1rem
+        }
+
+        .px-10 {
+            padding-left: 2.5rem;
+            padding-right: 2.5rem
+        }
+
+        .py-5 {
+            padding-top: 1.25rem;
+            padding-bottom: 1.25rem
+        }
+
+        .py-12 {
+            padding-top: 3rem;
+            padding-bottom: 3rem
+        }
+
+        .text-center {
+            text-align: center
+        }
+
+        .text-3xl {
+            font-size: 1.875rem;
+            line-height: 2.25rem
+        }
+
+        .text-xl {
+            font-size: 1.25rem;
+            line-height: 1.75rem
+        }
+
+        .text-lg {
+            font-size: 1.125rem;
+            line-height: 1.75rem
+        }
+
+        .text-2xl {
+            font-size: 1.5rem;
+            line-height: 2rem
+        }
+
+        .text-base {
+            font-size: 1rem;
+            line-height: 1.5rem
+        }
+
+        .font-bold {
+            font-weight: 700
+        }
+
+        .font-extrabold {
+            font-weight: 800
+        }
+
+        .font-medium {
+            font-weight: 500
+        }
+
+        .leading-tight {
+            line-height: 1.25
+        }
+
+        .text-green-600 {
+            --tw-text-opacity: 1;
+            color: rgb(22 163 74 / var(--tw-text-opacity))
+        }
+
+        .text-gray-700 {
+            --tw-text-opacity: 1;
+            color: rgb(55 65 81 / var(--tw-text-opacity))
+        }
+
+        .text-white {
+            --tw-text-opacity: 1;
+            color: rgb(255 255 255 / var(--tw-text-opacity))
+        }
+
+        .shadow-xl {
+            --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
+        }
+
+        .shadow-2xl {
+            --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
+        }
+
+        .transition-all {
+            transition-property: all;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms
+        }
+
+        .duration-300 {
+            transition-duration: 300ms
+        }
+
+        .hover\:scale-105:hover {
+            --tw-scale-x: 1.05;
+            --tw-scale-y: 1.05;
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+        }
+
+        .hover\:bg-green-700:hover {
+            --tw-bg-opacity: 1;
+            background-color: rgb(21 128 61 / var(--tw-bg-opacity))
+        }
+
+        .hover\:shadow-2xl:hover {
+            --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
+        }
+
+        @media (min-width:768px) {
+            .md\:py-16 {
+                padding-top: 4rem;
+                padding-bottom: 4rem
+            }
+
+            .md\:text-5xl {
+                font-size: 3rem;
+                line-height: 1
+            }
+
+            .md\:text-xl {
+                font-size: 1.25rem;
+                line-height: 1.75rem
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+</body>
+
+</html>
