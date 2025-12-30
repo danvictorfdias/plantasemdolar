@@ -1,7 +1,8 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import Hero from './components/hero/Hero';
 import Imagine from './components/imagine/Imagine';
 import Benefits from './components/benefits/Benefits';
+import { getUTMParams } from './utils/utm';
 
 const Gallery = lazy(() => import('./components/gallery/Gallery'));
 const PackageCTA = lazy(() => import('./components/packagecta/PackageCTA'));
@@ -16,6 +17,11 @@ const FAQCTA = lazy(() => import('./components/faqcta/FAQCTA'));
 const Footer = lazy(() => import('./components/footer/Footer'));
 
 function App() {
+  // Captura UTMs no carregamento da página
+  useEffect(() => {
+    getUTMParams();
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       <Hero />
