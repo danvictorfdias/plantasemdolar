@@ -1,52 +1,20 @@
 import { useRef, useEffect, useState, memo } from 'react';
 import { Check } from 'lucide-react';
 import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
-import { trackAndRedirect } from '../../services/clickTracking';
+
+const CHECKOUT_URL = 'https://pay.hotmart.com/P103510388G?checkoutMode=10&bid=1766800071532';
 
 function Offer() {
   const offerRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
   const isVisible = useIntersectionObserver(progressRef, { threshold: 0.5 });
-  // const [progress, setProgress] = useState(0); // Removed unused state
   const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
     if (isVisible && !hasAnimated) {
       setHasAnimated(true);
-      // Variables for progress animation (currently unused)
-      /*
-      let currentProgress = 0;
-      const targetProgress = 95;
-      const duration = 2000;
-      const steps = 60;
-      const increment = targetProgress / steps;
-      const stepDuration = duration / steps;
-      */
-
-      // Progress logic removed as it was unused in UI
-      /*
-      const timer = setInterval(() => {
-        currentProgress += increment;
-        if (currentProgress >= targetProgress) {
-          // setProgress(targetProgress);
-          clearInterval(timer);
-        } else {
-          // setProgress(Math.floor(currentProgress));
-        }
-      }, stepDuration);
-
-      return () => clearInterval(timer);
-      */
     }
   }, [isVisible, hasAnimated]);
-
-  const handlePurchase = () => {
-    const url = trackAndRedirect(
-      'https://pay.hotmart.com/P103510388G?checkoutMode=10&bid=1766800071532',
-      'offer-section'
-    );
-    window.location.href = url;
-  };
 
   return (
     <section id="offer-section" ref={offerRef} className="py-20 bg-gradient-to-br from-green-50 via-white to-green-50">
@@ -154,13 +122,13 @@ function Offer() {
               </div>
             </div>
 
-            <button
-              onClick={handlePurchase}
+            <a
+              href={CHECKOUT_URL}
               className="checkout w-full bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full text-xl font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 mb-4"
             >
               <span className="text-2xl">✅</span>
               QUERO MINHAS PLANTAS AMIGURUMI AGORA!
-            </button>
+            </a>
 
             <div className="flex items-center justify-center gap-3 mb-4">
               <div className="flex items-center gap-2">
