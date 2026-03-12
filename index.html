@@ -4,7 +4,7 @@
 <head>
     <!-- Utmify Pixel -->
     <script>
-        window.pixelId = "68ceca0c6b48e432db01234e";
+        window.pixelId = "69b2d543709513ce82c22b79";
         var a = document.createElement("script");
         a.setAttribute("async", "");
         a.setAttribute("defer", "");
@@ -388,6 +388,106 @@
             }
         }
     </style>
+
+    <!-- Back Redirect Script -->
+    <script type="text/javascript">
+    (function() {
+      var back_redirect_back_link = 'https://backplantasbrasil.amigurumitop.com';
+      var blockRedirect = false;
+      var isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+      function getQueryString() {
+        return window.location.search || '';
+      }
+
+      window.onbeforeunload = null;
+      window.removeEventListener('beforeunload', function() {});
+
+      history.pushState({}, "", location.href);
+      history.pushState({}, "", location.href);
+
+      if (isMobile) {
+        history.pushState({}, "", location.href);
+        history.pushState({}, "", location.href);
+      }
+
+      var xDown = null, yDown = null;
+
+      document.addEventListener('touchstart', function(evt) {
+        if (blockRedirect) return;
+        xDown = evt.touches[0].clientX;
+        yDown = evt.touches[0].clientY;
+      }, {passive: false});
+
+      document.addEventListener('touchmove', function(evt) {
+        if (!xDown || !yDown || blockRedirect) return;
+        var xUp = evt.touches[0].clientX;
+        var xDiff = xDown - xUp;
+
+        if (Math.abs(xDiff) > 100 && xDiff < 0) {
+          evt.preventDefault();
+          var queryString = getQueryString();
+          var finalUrl = back_redirect_back_link + queryString;
+          window.location.href = finalUrl;
+          xDown = null;
+          yDown = null;
+          return false;
+        }
+      }, {passive: false});
+
+      document.addEventListener('touchend', function() {
+        xDown = null;
+        yDown = null;
+      }, {passive: true});
+
+      window.onpopstate = function() {
+        if (blockRedirect) return;
+        var queryString = getQueryString();
+        var finalUrl = back_redirect_back_link + queryString;
+        setTimeout(function() {
+          location.href = finalUrl;
+        }, 0);
+      };
+
+      function shouldExcludeElement(element) {
+        if (!element) return false;
+        var currentEl = element;
+
+        while (currentEl && currentEl !== document.body) {
+          if (currentEl.tagName === 'BUTTON' || currentEl.tagName === 'A') return true;
+
+          var href = currentEl.getAttribute('href') || '';
+          if (href && (
+            href.includes('checkout') ||
+            href.includes('whatsapp') ||
+            href.includes('wa.me') ||
+            href.includes('hotmart') ||
+            href.includes('kiwify') ||
+            href.includes('pay') ||
+            href.startsWith('http')
+          )) return true;
+
+          var className = currentEl.className || '';
+          if (className.includes('btn') ||
+              className.includes('button') ||
+              className.includes('cta') ||
+              className.includes('no-redirect')) return true;
+
+          currentEl = currentEl.parentNode;
+        }
+        return false;
+      }
+
+      document.addEventListener('click', function(e) {
+        if (shouldExcludeElement(e.target)) {
+          blockRedirect = true;
+          setTimeout(function() {
+            blockRedirect = false;
+          }, 3000);
+        }
+      }, true);
+    })();
+    </script>
 </head>
 
 <body>
